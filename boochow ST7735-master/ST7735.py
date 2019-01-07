@@ -156,7 +156,7 @@ class TFT(object) :
       self._pushcolor(aColor)
 
 #   @micropython.native
-  def text( self, aPos, aString, aColor, aFont, aSize = 1, nowrap = False ) :
+  def text( self, aPos, aString, aColor = BLACK, aFont, aSize = 1, nowrap = False ) :
     '''Draw a text at the given position.  If the string reaches the end of the
        display it is wrapped to aPos[0] on the next line.  aSize may be an integer
        which will size the font uniformly on w,h or a or any type that may be
