@@ -156,7 +156,7 @@ class TFT(object) :
       self._pushcolor(aColor)
 
 #   @micropython.native
-  def text( self, aPos, aString, aColor = BLACK, aFont, aSize = 1, nowrap = False ) :
+  def text( self, aPos, aString, aColor, aFont, aSize = 1, nowrap = False ) :
     '''Draw a text at the given position.  If the string reaches the end of the
        display it is wrapped to aPos[0] on the next line.  aSize may be an integer
        which will size the font uniformly on w,h or a or any type that may be
@@ -367,7 +367,7 @@ class TFT(object) :
       y0 = aPos[1] - y
       ey = y0 + y * 2
       y0 = clamp(y0, 0, self._size[1])
-      ln = abs(ey - y0) + 1;
+      ln = abs(ey - y0) + 1
 
       self.vline((aPos[0] + x, y0), ln, aColor)
       self.vline((aPos[0] - x, y0), ln, aColor)
@@ -375,6 +375,41 @@ class TFT(object) :
   def fill( self, aColor = BLACK ) :
     '''Fill screen with the given color.'''
     self.fillrect((0, 0), self._size, aColor)
+
+  def drawBMP(self, path):
+    f=open(path, 'rb')
+    if f.read(2) == b'BM':  #header
+        dummy = f.read(8) #file size(4), creator bytes(4)
+        offset = int.from_bytes(f.read(4), 'little')
+        hdrsize = int.from_bytes(f.read(4), 'little')
+        width = int.from_bytes(f.read(4), 'little')
+        height = int.from_bytes(f.read(4), 'little')
+        if int.from_bytes(f.read(2), 'little') == 1: #planes must be 1
+            depth = int.from_bytes(f.read(2), 'little')
+            if depth == 24 and int.from_bytes(f.read(4), 'little') == 0:#compress method == uncompressed
+                print("Image size:", width, "x", height)
+                rowsize = (width * 3 + 3) & ~3
+                if height < 0:
+                    height = -height
+                    flip = False
+                else:
+                    flip = True
+                w, h = width, height
+                if w > 128: w = 128
+                if h > 160: h = 160
+                self._setwindowloc((0,0),(w - 1,h - 1))
+                for row in range(h):
+                    if flip:
+                        pos = offset + (height - 1 - row) * rowsize
+                    else:
+                        pos = offset + row * rowsize
+                    if f.tell() != pos:
+                        dummy = f.seek(pos)
+                    for col in range(w):
+                        bgr = f.read(3)
+                        self._pushcolor(self.TFTColor(bgr[2],bgr[1],bgr[0]))
+
+
 
 #   @micropython.native
   def _setColor( self, aColor ) :

@@ -1,5 +1,6 @@
 from ST7735 import TFT
-from machine import SPI,Pin,I2C,PWM
+from machine import SPI, Pin, I2C, PWM
+from neopixel import NeoPixel
 import time
 import math
 from pcf8574 import PCF8574
@@ -108,7 +109,19 @@ class MAKERphone(object):
             0x00, 0x02, 0x01, 0x02, 0x01, 0x00,
             0x00, 0x3C, 0x26, 0x23, 0x26, 0x3C
         ])}
+        self.BTN_A = 5
+        self.BTN_B = 6
+        self.BTN_UP = 3
+        self.BTN_DOWN = 1
+        self.BTN_LEFT = 0
+        self.BTN_RIGHT = 2
+
+
+        self._BL_PIN = 12
+        self._PIXELS_PIN = 33 
+        self._NUM_PIXELS = 8
         
+
         self.i2c = I2C(scl=Pin(27), sda=Pin(14), freq=100000)
         self.buttons = PCF8574.PCF8574(self.i2c, 0x21) #21 for main buttons, 20 for numerical keypad
         self.spi = SPI(2, baudrate=20000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
@@ -117,7 +130,7 @@ class MAKERphone(object):
         self.display.rgb(True)
         self.display.rotation(3)
         self.display.fill(0)
-
+        self.pixels = NeoPixel(Pin(self._PIXELS_PIN, Pin.OUT), self._NUM_PIXELS)
         
         self.BLACK = 0
         self.RED = self.display.RED
@@ -132,15 +145,7 @@ class MAKERphone(object):
         self.WHITE = self.display.WHITE
         self.GRAY = self.display.GRAY
 
-        self.BTN_A = 5
-        self.BTN_B = 6
-        self.BTN_UP = 3
-        self.BTN_DOWN = 1
-        self.BTN_LEFT = 2
-        self.BTN_RIGHT = 0
-
-
-        self._BL_PIN = 12
+        
         Pin(self._BL_PIN, Pin.OUT).value(0)
 
     def collideRectRect(self, x1, y1, w1, h1, x2, y2, w2, h2):
