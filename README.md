@@ -1,2 +1,2 @@
-# MAKERphone-python
-Micropython support for MAKERphone.
+# CircuitMess-Ringo-python
+Micropython support for CircuitMess Ringo.
