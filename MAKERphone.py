@@ -1,10 +1,16 @@
 from ST7735 import TFT
 from machine import SPI, Pin, I2C, PWM
 from neopixel import NeoPixel
+from buttons import buttons
 import time
 import math
+<<<<<<< Updated upstream:MAKERphone.py
 from pcf8574 import PCF8574
 class MAKERphone(object):
+=======
+
+class RINGO(object):
+>>>>>>> Stashed changes:RINGO.py
     def __init__(self):
         self.font1 = {
             "Width": 6,
@@ -109,29 +115,64 @@ class MAKERphone(object):
             0x00, 0x02, 0x01, 0x02, 0x01, 0x00,
             0x00, 0x3C, 0x26, 0x23, 0x26, 0x3C
         ])}
-        self.BTN_A = 5
-        self.BTN_B = 6
-        self.BTN_UP = 3
-        self.BTN_DOWN = 1
-        self.BTN_LEFT = 0
-        self.BTN_RIGHT = 2
+        #updated pins/buttons
+        self.BTN_1 = 0
+        self.BTN_2 = 1
+        self.BTN_3 = 2
+        self.BTN_4 = 3
+        self.BTN_5 = 4
+        self.BTN_6 = 5
+        self.BTN_7 = 6
+        self.BTN_8 = 7
+        self.BTN_9 = 8
+        self.BTN_ASTERISK = 9
+        self.BTN_0 = 10
+        self.BTN_HASHTAG = 11
+        self.BTN_FUN_RIGHT = 12
+        self.BTN_FUN_LEFT = 15
+        self.BTN_A = 16
+        self.BTN_B = 17
+        #obsolete buttons, successor - readJoystickX/Y()
+        # self.BTN_UP = 18
+        # self.BTN_DOWN = 19
+        # self.BTN_LEFT = 20
+        # self.BTN_RIGHT = 21
 
+<<<<<<< Updated upstream:MAKERphone.py
 
         self._BL_PIN = 12
         self._PIXELS_PIN = 33 
+=======
+        self._BL_PIN = 21
+        self._PIXELS_PIN = 12
+        self._SIM_PIXELS_ENABLE_PIN = 26
+>>>>>>> Stashed changes:RINGO.py
         self._NUM_PIXELS = 8
-        
 
+
+<<<<<<< Updated upstream:MAKERphone.py
         self.i2c = I2C(scl=Pin(27), sda=Pin(14), freq=100000)
         self.buttons = PCF8574.PCF8574(self.i2c, 0x21) #21 for main buttons, 20 for numerical keypad
         self.spi = SPI(2, baudrate=20000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19))
         self.display=TFT(self.spi,0,2,4)
+=======
+        self.i2c = I2C(scl=Pin(27), sda=Pin(14), freq=100000) #ok
+        self.buttons = buttons()
+        #self.buttons = PCA9539(self.i2c, 0x21) #21 for main buttons, 20 for numerical keypad
+        self.spi = SPI(2, baudrate=20000000, polarity=0, phase=0, sck=Pin(18), mosi=Pin(23), miso=Pin(19)) #ok
+        self.display=TFT(self.spi,0,2,4) #ok
+>>>>>>> Stashed changes:RINGO.py
         self.display.initr()
         self.display.rgb(True)
-        self.display.rotation(3)
+        self.display.rotation(1) #rotation changed to 1 (top left)
         self.display.fill(0)
+<<<<<<< Updated upstream:MAKERphone.py
         self.pixels = NeoPixel(Pin(self._PIXELS_PIN, Pin.OUT), self._NUM_PIXELS)
         
+=======
+        self.pixels = NeoPixel(Pin(self._PIXELS_PIN, Pin.OUT), self._NUM_PIXELS, timing=True)
+
+>>>>>>> Stashed changes:RINGO.py
         self.BLACK = 0
         self.RED = self.display.RED
         self.MAROON = self.display.MAROON
@@ -145,11 +186,15 @@ class MAKERphone(object):
         self.WHITE = self.display.WHITE
         self.GRAY = self.display.GRAY
 
-        
+
         Pin(self._BL_PIN, Pin.OUT).value(0)
 
     def collideRectRect(self, x1, y1, w1, h1, x2, y2, w2, h2):
         return (x2 < x1 + w1 and x2 + w2 > x1 and y2 < y1 + h1 and y2 + h2 > y1)
     def backlight(self, bl):
         PWM(Pin(self._BL_PIN)).duty(bl)
+        return
+    def cls(self):
+        print("\x1B\x5B2J", end="")
+        print("\x1B\x5BH", end="")
         return

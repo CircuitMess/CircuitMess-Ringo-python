@@ -3,6 +3,14 @@ Micropython support for CircuitMess Ringo.
 
 <br/>
 
+Currently supported features:
+
+ - All buttons (including optional direct port access)
+ - Joystick ADC values
+ - Display (low refresh rate, still buggy)
+ - Neopixels (RGB leds) driving
+ 
+
 ## Meta
 
 

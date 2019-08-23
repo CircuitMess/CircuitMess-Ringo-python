@@ -1,5 +1,5 @@
-from MAKERphone import MAKERphone
-mp = MAKERphone()
+from RINGO import RINGO
+mp = RINGO()
 import random, utime
 paused = False
 #player variables
@@ -27,20 +27,20 @@ ball_vy = 3
 random.seed(utime.ticks_ms()*utime.ticks_ms())
 while (1):
     
-    if (mp.buttons.read(mp.BTN_A)):
-        while (mp.buttons.read(mp.BTN_A)):
+    if (mp.buttons.readState(mp.BTN_A)):
+        while (mp.buttons.readState(mp.BTN_A)):
             pass
         mp.display.fill(0)
         mp.display.text((50, 57), "PAUSED", mp.WHITE, mp.font1, 2)
-        while (not mp.buttons.read(mp.BTN_A)):
+        while (not mp.buttons.readState(mp.BTN_A)):
             pass
-        while (mp.buttons.read(mp.BTN_A)):
+        while (mp.buttons.readState(mp.BTN_A)):
             pass
     
-    if (mp.buttons.read(mp.BTN_UP)):
+    if (mp.buttons.readJoystickX() < 100):
         mp.display.rect((player_x, player_y), (player_w, player_h), mp.BLACK)
         player_y = max(0, player_y - player_vy)
-    if (mp.buttons.read(mp.BTN_DOWN)):
+    if (mp.buttons.readJoystickX() > 1000):
         mp.display.rect((player_x, player_y), (player_w, player_h), mp.BLACK)
         player_y = min(128 - player_h, player_y + player_vy)
 

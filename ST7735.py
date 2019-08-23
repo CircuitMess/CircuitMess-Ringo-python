@@ -19,7 +19,7 @@ from math import sqrt
 #60 = 90 right rotation
 #C0 = 180 right rotation
 #A0 = 270 right rotation
-TFTRotations = [0x00, 0x60, 0xC0, 0xA0]
+TFTRotations = [0x00, 0x60, 0x00, 0xA0]
 TFTBGR = 0x08 #When set color is bgr else rgb.
 TFTRGB = 0x00
 

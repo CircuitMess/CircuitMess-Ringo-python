@@ -1,5 +1,5 @@
-from MAKERphone import MAKERphone
-mp = MAKERphone()
+from RINGO import RINGO
+mp = RINGO()
 field = [
     ['', '', ''],
     ['', '', ''],
@@ -147,32 +147,32 @@ while (1):
         mp.display.text((0, 0), "P2", mp.WHITE, mp.font1)
 
         
-    if (mp.buttons.read(mp.BTN_LEFT) and cursorX > 0):
+    if (mp.buttons.readJoystickY() > 1000 and cursorX > 0):
         if(field[cursorY][cursorX] == ''):
             print_cursor(turn, cursorX, cursorY, mp.BLACK)
         cursorX -= 1
         # while (mp.buttons.read(mp.BTN_LEFT)):
         #     pass
-    if (mp.buttons.read(mp.BTN_RIGHT) and cursorX < 2):
+    if (mp.buttons.readJoystickY() < 100 and cursorX < 2):
         if(field[cursorY][cursorX] == ''):
             print_cursor(turn, cursorX, cursorY, mp.BLACK)
         cursorX += 1
         # while (mp.buttons.read(mp.BTN_RIGHT)):
         #     pass
-    if (mp.buttons.read(mp.BTN_UP) and cursorY > 0):
+    if (mp.buttons.readJoystickX() < 100 and cursorY > 0):
         if(field[cursorY][cursorX] == ''):
             print_cursor(turn, cursorX, cursorY, mp.BLACK)
         cursorY -= 1
         # while (mp.buttons.read(mp.BTN_UP)):
         #     pass
-    if (mp.buttons.read(mp.BTN_DOWN) and cursorY < 2):
+    if (mp.buttons.readJoystickX() > 1000 and cursorY < 2):
         if(field[cursorY][cursorX] == ''):
             print_cursor(turn, cursorX, cursorY, mp.BLACK)
         cursorY += 1
         # while (mp.buttons.read(mp.BTN_DOWN)):
         #     pass
-    if (mp.buttons.read(mp.BTN_A) and field[cursorY][cursorX] == ''):
-        while (mp.buttons.read(mp.BTN_A)):
+    if (mp.buttons.readState(mp.BTN_A) and field[cursorY][cursorX] == ''):
+        while (mp.buttons.readState(mp.BTN_A)):
             pass
         if (turn):
             field[cursorY][cursorX] = 'O'
@@ -184,7 +184,7 @@ while (1):
         if (win == 'X'):
             mp.display.fill(0)
             mp.display.text((40, 50), "X wins!", mp.WHITE, mp.font1, 2)
-            while (not mp.buttons.read(mp.BTN_A)):
+            while (not mp.buttons.readState(mp.BTN_A)):
                 pass
             field = [
                 ['', '', ''],
@@ -198,7 +198,7 @@ while (1):
         elif (win == 'O'):
             mp.display.fill(0)
             mp.display.text((40, 50), "O wins!", mp.WHITE, mp.font1, 2)
-            while (not mp.buttons.read(mp.BTN_A)):
+            while (not mp.buttons.readState(mp.BTN_A)):
                 pass
             field = [
                 ['', '', ''],
@@ -211,7 +211,7 @@ while (1):
         elif (win == 'D'):
             mp.display.fill(0)
             mp.display.text((40, 50), "Draw!", mp.WHITE, mp.font1, 2)
-            while (not mp.buttons.read(mp.BTN_A)):
+            while (not mp.buttons.readState(mp.BTN_A)):
                 pass
             field = [
                 ['', '', ''],
