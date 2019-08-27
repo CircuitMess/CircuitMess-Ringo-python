@@ -3,24 +3,27 @@
 
 ## 0. Thonny IDE
 
-To start programming your Ringo phone using MicroPython you will need an IDE. Thonny IDE offers a simple interface and tools that you will need to get you started.
+To start programming your Ringo phone using MicroPython, you will need an IDE. Thonny IDE offers a simple interface and tools that you will need to get you started.
 
-Go to the address: https://thonny.org/
+We provided a setup file for Thonny IDE in the repository.
 
-Download the installation file according to your OS.
+Install Thonny IDE and proceed to the next step.
+## 1. Download CircuitMess-Ringo-python repository
+
+Download the repository from this link: https://github.com/CircuitMess/CircuitMess-Ringo-python/archive/master.zip
+
+## 2. Clone CircuitMess-Ringo-python repository
+
+We provided a setup file for Thonny IDE in the repository.
 Install Thonny IDE and proceed to the next step.
 
-## 1. Clone CircuitMess-Ringo-python repository
-
-Download the repository from https://github.com/CircuitMess/CircuitMess-Ringo-python.git (Or download manually)
-
-## 2. Flashing Ringo with MicroPython firmware
+## 3. Flashing Ringo with MicroPython firmware
 
 Follow the guide at: https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/flash-firmware
 
 **NOTE**: Remember to flash the provided "ESP32_c.bin" custom firmware as it contains all the dependencies required for Ringo phone to work with MicroPython!
 
-## 3. Thonny IDE setup
+## 4. Thonny IDE setup
 
 Before starting you will need to configure the IDE to work with Ringo phone
 
@@ -60,3 +63,6 @@ Before starting you will need to configure the IDE to work with Ringo phone
 <b>b) Run a script without uploading it</b>  
 1. Press the Run current script button and your script will run without uploading to your device
 <img src="https://www.dropbox.com/s/1dfotrnozfevgdl/5_.png?raw=1" alt="drawing" width="700"/>
+
+
+You're now ready to start writing your own MicroPython scripts and running them on your Ringo phone!
