@@ -12,10 +12,12 @@ Install Thonny IDE and proceed to the next step.
 
 Download the repository from this link: https://github.com/CircuitMess/CircuitMess-Ringo-python/archive/master.zip
 
-## 2. Clone CircuitMess-Ringo-python repository
+## 2. Install Thonny IDE
 
 We provided a setup file for Thonny IDE in the repository.
 Install Thonny IDE and proceed to the next step.
+
+(Alternatively go to https://thonny.org/ and download from there)
 
 ## 3. Flashing Ringo with MicroPython firmware
 
