@@ -11,6 +11,8 @@ Currently supported features:
  - Neopixels (RGB leds) driving
  
 
+Basic setup tutorial: [TUTORIAL](https://github.com/CircuitMess/CircuitMess-Ringo-python/blob/master/basic_tut.MD)
+
 ## Meta
 
 
