@@ -40,7 +40,7 @@ Before starting you will need to configure the IDE to work with Ringo phone
 
 2. Dropdown menu -> MicroPython on a generic device
 	
-3. Select your serial port from the second dropdown menu (or select detect manually)
+3. Select your serial port from the second dropdown menu (Silicon Labs CP210x USB to UART Bridge(COMx))
 <img src="https://www.dropbox.com/s/2ru2y8saev4webj/3_.png?raw=1" alt="drawing" width="700"/>
 
 
