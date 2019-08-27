@@ -55,7 +55,7 @@ Before starting you will need to configure the IDE to work with Ringo phone
 <img src="https://www.dropbox.com/s/lsnd4z74h3rw3ul/4_.png?raw=1" alt="drawing" width="700"/>
 
 
-2. To run the script from Ringo phone use REPL Shell (Bottom of the IDE screen), type:
+2. To run the script from Ringo phone, use REPL Shell (Bottom of the IDE screen), type:
 	
 	import scriptName
 	
