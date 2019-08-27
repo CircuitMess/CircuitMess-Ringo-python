@@ -17,8 +17,6 @@ Download the repository from this link: https://github.com/CircuitMess/CircuitMe
 We provided a setup file for Thonny IDE in the repository.
 Install Thonny IDE and proceed to the next step.
 
-(Alternatively go to https://thonny.org/ and download from there)
-
 ## 3. Flashing Ringo with MicroPython firmware
 
 Follow the guide at: https://learn.adafruit.com/building-and-running-micropython-on-the-esp8266/flash-firmware
