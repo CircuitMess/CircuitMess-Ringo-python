@@ -57,6 +57,6 @@ Before starting you will need to configure the IDE to work with Ringo phone
 <img src="https://www.dropbox.com/s/h01voezv2x6gf8m/6_.png?raw=1" alt="drawing" width="700"/>
 
 
-<b>b) Run script without uploading it</b>  
+<b>b) Run a script without uploading it</b>  
 1. Press the Run current script button and your script will run without uploading to your device
 <img src="https://www.dropbox.com/s/1dfotrnozfevgdl/5_.png?raw=1" alt="drawing" width="700"/>
