@@ -31,8 +31,9 @@ Before starting you will need to configure the IDE to work with Ringo phone
 1. Tools -> Options -> Interpreter
 <img src="https://www.dropbox.com/s/dqv5pj2kfrpym33/1_.png?raw=1" alt="drawing" width="700"/>
 
-2. Dropdown menu -> MicroPython on a generic device
 <img src="https://www.dropbox.com/s/z7rwx20pmkt9j6w/2_.png?raw=1" alt="drawing" width="700"/>
+
+2. Dropdown menu -> MicroPython on a generic device
 	
 3. Select your serial port from the second dropdown menu (or select detect manually)
 <img src="https://www.dropbox.com/s/2ru2y8saev4webj/3_.png?raw=1" alt="drawing" width="700"/>
