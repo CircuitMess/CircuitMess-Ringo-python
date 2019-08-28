@@ -41,6 +41,7 @@ Before starting you will need to configure the IDE to work with Ringo phone
 3. Select your serial port from the second dropdown menu (Silicon Labs CP210x USB to UART Bridge(COMx))
 <img src="https://www.dropbox.com/s/2ru2y8saev4webj/3_.png?raw=1" alt="drawing" width="700"/>
 
+**NOTE** If you're having issues with drivers, we've included SiliconLabsC210x drivers in the repository. Follow instructions [here](https://startingelectronics.org/software/arduino/installing-arduino-software-windows-10/) (Windows 10)
 
 ## Uploading and running scripts
 	
