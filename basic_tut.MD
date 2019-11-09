@@ -23,6 +23,8 @@ Follow the guide at: https://learn.adafruit.com/building-and-running-micropython
 
 **NOTE**: Remember to flash the provided "ESP32_c.bin" custom firmware as it contains all the dependencies required for Ringo phone to work with MicroPython!
 
+**NOTE**: If your phone stops responding after the flash, you can recover using the directions in this post. https://community.circuitmess.com/t/ringo-reflash-factory-firmware/2482/5
+
 ## 4. Thonny IDE setup
 
 Before starting you will need to configure the IDE to work with Ringo phone
